@@ -1,16 +1,114 @@
+@font-face {
+    font-family: 'Dancing Script';
+    src: url('Assets/Fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf') format('truetype');
+    /* This allows you to use any weight from 400 to 700 later */
+    font-weight: 400 700; 
+    font-style: normal;
+}
+body{
+    background-color: #efefef;
+}
+
 .logo-header{
 border: solid 1px red;
 display: inline-block;
 width: 100%;
+background-color: white;
 }
 .logo-holder{
+    height:210px;
     border: solid 1px blue;
     width:fit-content;
     justify-self: center;
+    justify-content: center;
+    justify-items: center;
 }
 .jennyLogo, .mihshaLogo{
-    width: 100px;
+    width: 120px;
+    padding: 0px 100px 0px 100px;
 }
 .textLogo{
-    width:200px;
+    width:300px;
+}
+.textHeader{
+    color:rgb(202, 167, 24);
+    margin-top: -10px;
+    font-family:'Dancing Script';
+    font-size: 30px;
+    font-weight: 100;
+    letter-spacing: 4px;
+}
+
+nav ul {
+    font-family:Arial, Helvetica, sans-serif;
+    list-style: none; /* Removes the bullet points */
+    display: flex;    /* Puts items in a row */
+    gap: 85px;       /* Adds space between the links */
+    padding: 0;
+    justify-self: center;
+}
+
+nav a {
+    text-decoration: none; /* Removes the underline */
+    color: #333;
+}
+.intro{
+    justify-items: center;
+}
+.subHeader{
+    font-family: 'Dancing Script';
+    font-size: 35px;
+    color:rgb(202, 167, 24);
+    letter-spacing: 1px;
+    padding:15px
+}
+.subText{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(101, 101, 101);
+    font-size: 15px;
+    width:800px;
+    padding-bottom: 40px;
+    text-align: center;
+    margin-top: -30px;
+}
+
+.textContainer{
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    justify-self: center;
+    border-radius: 20px;
+}
+
+.infoContainer{
+    display: inline;
+    border: solid 1px red;
+    display: flex;
+    width: 90%;
+    justify-self: center;
+}
+.infoTextContainer{
+    background-color: rgb(255, 255, 255);
+    width: 90%;
+    justify-self: center;
+    border-radius: 20px;
+}
+.passion, .tailored, .convenient{
+    width: 400px;
+}
+.subSubHeader{
+    font-family: 'Dancing Script';
+    font-size: 27px;
+    color:rgb(202, 167, 24);
+    letter-spacing: 1px;
+    padding:15px;
+    text-align: center;
+}
+.infoSubText{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(101, 101, 101);
+    font-size: 15px;
+    width:90%;
+    padding-bottom: 40px;
+    text-align: center;
+    margin-top: -30px;
 }
