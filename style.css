@@ -1,0 +1,16 @@
+.logo-header{
+border: solid 1px red;
+display: inline-block;
+width: 100%;
+}
+.logo-holder{
+    border: solid 1px blue;
+    width:fit-content;
+    justify-self: center;
+}
+.jennyLogo, .mihshaLogo{
+    width: 100px;
+}
+.textLogo{
+    width:200px;
+}
