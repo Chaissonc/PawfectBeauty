@@ -1,60 +1,123 @@
 @font-face {
     font-family: 'Dancing Script';
-    src: url('Assets/Fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf') format('truetype');
-    /* This allows you to use any weight from 400 to 700 later */
+    src: url('Assets/Fonts/Dancing_Script/static/DancingScript-Regular.ttf') format('truetype');
     font-weight: 400 700; 
     font-style: normal;
 }
+@font-face {
+    font-family: 'Barlow';
+    src: url('Assets/Fonts/Barlow/Barlow-Regular.ttf') format('truetype');
+    font-style: normal;
+}
 body{
-    background-color: #efefef;
+    margin:0px;
+    padding:0px;
+    background-image:url("Assets/Photos/Background/marble.avif")
 }
 
 .logo-header{
 border: solid 1px rgba(255, 0, 0, 0);
 display: inline-block;
-width: 100%;
+width:100%;
+height:194px;
 background-color: white;
+
 }
 .logo-holder{
-    height:210px;
     border: solid 1px rgba(0, 0, 255, 0);
     width:fit-content;
     justify-self: center;
-    justify-content: center;
     justify-items: center;
+    background-color: white;
 }
 .jennyLogo, .mihshaLogo{
-    width: 120px;
-    padding: 0px 100px 0px 100px;
+    width: 110px;
+    padding: 8px 170px 0px 170px;
 }
 .textLogo{
-    width:300px;
+    margin-top: 0px;
+    width:200px;
+    position: relative;
+    top:-27px;
+    
 }
 .textHeader{
     color:rgb(202, 167, 24);
-    margin-top: -10px;
+    margin-top: -30px;
     font-family:'Dancing Script';
-    font-size: 30px;
+    font-size: 23px;
     font-weight: 100;
-    letter-spacing: 4px;
+    letter-spacing: 6px;
 }
-
+.navBar{
+margin-top: 0px;
+width:100%;
+height:100%;
+padding-bottom: 0.1px;
+background-color: rgba(255, 255, 255, 0.41);
+}
 nav ul {
     font-family:Arial, Helvetica, sans-serif;
     list-style: none; /* Removes the bullet points */
     display: flex;    /* Puts items in a row */
     gap: 85px;       /* Adds space between the links */
-    padding: 0;
     justify-self: center;
+    justify-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-top: 0px;
+    padding-top: 10px;
 }
 
 nav a {
     text-decoration: none; /* Removes the underline */
     color: #333;
 }
+
+.dog-carousel-container {
+    width: 85%; /* Slightly wider to show off the row */
+    height: 110%; /* Adjust height for the "cropped strip" look */
+    margin: 40px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.dog-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.dog-track img {
+    /* This calculation ensures exactly 7 fit in the container */
+    width: 250px;
+    height: 350px;
+    
+    flex-shrink: 0;
+    padding: 0 5px; /* Adds a small gap between dogs */
+    box-sizing: border-box;
+}
+
+#dogPrev, #dogNext {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(202, 167, 24, 0.8);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#dogNext { right: 0; }
+#dogPrev { left: 0; }
+
+
+
 .intro{
     justify-items: center;
 }
+
 .subHeader{
     font-family: 'Dancing Script';
     font-size: 35px;
@@ -63,7 +126,7 @@ nav a {
     padding:15px
 }
 .subText{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Barlow;
     color: rgb(101, 101, 101);
     font-size: 15px;
     width:800px;
@@ -74,12 +137,10 @@ nav a {
 
 .textContainer{
     background-color: rgb(255, 255, 255);
-    width: 80%;
+    width: 70%;
     justify-self: center;
     border-radius: 20px;
 }
-
-
 
 
 
@@ -94,39 +155,92 @@ nav a {
     display: inline;
     border: solid 1px rgba(255, 0, 0, 0);
     display: flex;
-    width: 90%;
+    width: 70%;
     height:450px;
     justify-self: center;
     justify-content: center;
+    padding-bottom: 400px;
 }
 .infoTextContainer{
     background-color: rgb(255, 255, 255);
-    width: 90%;
+    width: 95%;
     height:100%;
     justify-self: center;
     justify-items: center;
     border-radius: 20px;
+}
+
+.infoIcons{
+    display: flex;
+    justify-self: center;
+}
+.passionIcon{
+    width:100px;
+    height:100px;
+    display: flex;
+}
+.tailoredIcon{
+    width:100px;
+    height:100px;
+    display: flex;
+    padding-top: 3px;
+}
+.convenientIcon{
+    width:90px;
+    height:90px;
+    display: flex;
+    padding-top: 9px;
 }
 .passion, .tailored, .convenient{
     width: 400px;
 }
 .subSubHeader{
     font-family: 'Dancing Script';
-    font-size: 27px;
+    font-size: 23px;
     color:rgb(202, 167, 24);
     letter-spacing: 1px;
     padding: 5px;
     text-align: center;
+    height:60px;
+    width:230px;
 }
 .infoSubText{
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(101, 101, 101);
-    font-size: 15px;
-    width:90%;
+    font-family: Barlow;
+    color: rgb(130, 130, 130);
+    font-size: 17px;
+    width:80%;
     height:100px;
     border: 1px rgba(26, 215, 26, 0) solid;
     padding-bottom: 40px;
-    padding-top:20px;
     text-align: center;
     margin-top: -30px;
+    padding-top: 10px;
+}
+
+.buttonHolder{
+    padding:20px;
+}
+.infoButton{
+    outline: 0.1px solid black;
+    font-size: 13px;
+    height:40px;
+    width:160px;
+    background-color: #ffffff00;
+    border-radius: 20px;
+}
+
+
+
+
+.footer{
+    background-color:rgb(202, 167, 24);
+    display:inline-flex
+}
+.leftFooter{
+    border: 1px red solid;
+    display: flex;
+}
+.rightFooter{
+    border: 1px solid blue;
+    display:flex;
 }

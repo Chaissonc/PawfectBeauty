@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home | Pawfect Beauty</title>
     <link rel="stylesheet" href="style.css">
+
+
+
 </head>
 <body>
     <div class="logo-header">
@@ -19,22 +22,35 @@
 
 
 
-
-<nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="services.html">Our Services</a></li>
-    <li><a href="services.html">Book Online</a></li>
-    <li><a href="services.html">Contact Us</a></li>
-  </ul>
-</nav>
-
-
+<div class="navBar">
+    <nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="services.html">Book Online</a></li>
+        <li><a href="services.html">Contact Us</a></li>
+    </ul>
+    </nav>
+</div>
+<div class="dog-carousel-container">
+    <div class="dog-track">
+        <img src="Assets/Photos/Dogs/Dog1.PNG" alt="Dog 1">
+        <img src="Assets/Photos/Dogs/Dog2.PNG" alt="Dog 2">
+        <img src="Assets/Photos/Dogs/Dog3.PNG" alt="Dog 3">
+        <img src="Assets/Photos/Dogs/Dog4.PNG" alt="Dog 4">
+        <img src="Assets/Photos/Dogs/Dog5.PNG" alt="Dog 5">
+        <img src="Assets/Photos/Dogs/Dog6.PNG" alt="Dog 6">
+        <img src="Assets/Photos/Dogs/Dog7.PNG" alt="Dog 7">
+        <img src="Assets/Photos/Dogs/Dog8.PNG" alt="Dog 8">
+        <img src="Assets/Photos/Dogs/Dog9.PNG" alt="Dog 9">
+        </div>
+    <button id="dogPrev">❮</button>
+    <button id="dogNext">❯</button>
+</div>
 
 
 <div class="textContainer">
-    
     <div class="intro">
         <p class="subHeader"> We Pamper Your Pet to Pawfection </p>
 
@@ -54,17 +70,22 @@
     
     <div class="passion">
         <div class="infoTextContainer">
+            <img class=infoIcons src="Assets/Icons/icons8-heart-with-dog-paw-100 (1).png">
             <p class="subSubHeader">Our Passion For Pups</p>
         
             <p class="infoSubText">At Pawfect Beauty, our love for dogs is at the heart of
             everything we do. We strive to create a nurturing and 
             soothing environment where your pet can relax and enjoy 
             the grooming process.</p>
+            <div class="buttonHolder">
+                <button class="infoButton">About Us</button>
+            </div>
         </div>
     </div>
 
     <div class="tailored">
         <div class="infoTextContainer">
+            <img class="tailoredIcon" src="Assets/Icons/icons8-dog-80.png">
             <p class="subSubHeader">Tailored Grooming Services</p>
           
             <p class="infoSubText">From bathing and brushing to breed-specific trims, 
@@ -72,11 +93,15 @@
             to your furbaby's unique needs. Our personalized 
             approach ensures that your pet receives the individual 
             care and attention they deserve.</p>
+            <div class="buttonHolder">
+                <button class="infoButton">Our Services</button>
+            </div>
         </div>
     </div>
 
     <div class="convenient">
         <div class="infoTextContainer">
+            <img class="convenientIcon" src="/Assets/Icons/icons8-appointment-100 (1).png">
             <p class="subSubHeader">Convenient Appointment Hours</p>
             
             <p class="infoSubText">We understand the busy schedules of pet parents, 
@@ -84,11 +109,27 @@
                 to accommodate your convenience. Contact us to 
                 book an appointment and treat your dog to a 
                 pampering session at Pawfect Beauty.</p>
+            <div class="buttonHolder">
+                <button class="infoButton">Book Now</button>
+            </div>
         </div>
     </div>
     
 </div>
 
-
+<footer>
+    <div class="footer">
+        <div class="leftFooter">
+            <p>2026 Pawfect Beauty</p>
+            <p>All Vaccine records are required at drop off.</p>
+        </div>
+        <div class="rightFooter">
+            <p>702-954-6226</p>
+            <p>Pawfectbeautylv@gmail.com</p>
+            <p>8665 W Flamingo Rd Ste 105 Las Vegas, NV</p>
+        </div>
+    </div>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
