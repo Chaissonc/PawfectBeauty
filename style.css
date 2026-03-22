@@ -1,82 +1,119 @@
+/* ============================================================
+   PAWFECT BEAUTY — STYLESHEET
+   Sections:
+   1. Fonts
+   2. Base
+   3. Header & Navigation
+   4. Carousel
+   5. Home — Text & Info Cards
+   6. Shared Page Cards
+   7. Services Page
+   8. Pricing Page
+   9. About Page — Team Section
+   10. Contact Page
+   11. Buttons
+   12. Footer
+   13. Mobile (max-width: 768px)
+   ============================================================ */
+
+
+/* ── 1. Fonts ── */
+
 @font-face {
     font-family: 'Dancing Script';
     src: url('Assets/Fonts/Dancing_Script/static/DancingScript-Regular.ttf') format('truetype');
-    font-weight: 400 700; 
+    font-weight: 400 700;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'Barlow';
     src: url('Assets/Fonts/Barlow/Barlow-Regular.ttf') format('truetype');
     font-style: normal;
 }
-body{
-    margin:0px;
-    padding:0px;
-    background-image:url("Assets/Photos/Background/marble.avif")
+
+
+/* ── 2. Base ── */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("Assets/Photos/Background/marble.avif");
 }
 
-.logo-header{
-border: solid 1px rgba(255, 0, 0, 0);
-display: inline-block;
-width:100%;
-height:194px;
-background-color: white;
 
-}
-.logo-holder{
-    border: solid 1px rgba(0, 0, 255, 0);
-    width:fit-content;
-    justify-self: center;
-    justify-items: center;
+/* ── 3. Header & Navigation ── */
+
+.logo-header {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    padding-bottom: 6px;
     background-color: white;
 }
-.jennyLogo, .mihshaLogo{
+
+.logo-holder {
+    width: fit-content;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.jennyLogo, .mihshaLogo {
     width: 110px;
-    padding: 8px 170px 0px 170px;
+    padding: 8px 170px 0;
 }
-.textLogo{
-    margin-top: 0px;
-    width:200px;
+
+.textLogo {
+    width: 200px;
     position: relative;
-    top:-27px;
-    
+    top: -27px;
 }
-.textHeader{
-    color:rgb(202, 167, 24);
-    margin-top: -30px;
-    font-family:'Dancing Script';
+
+.textHeader {
+    font-family: 'Dancing Script';
     font-size: 23px;
     font-weight: 100;
+    color: rgb(202, 167, 24);
     letter-spacing: 6px;
+    margin-top: -30px;
+    margin-bottom: 0;
+    text-align: center;
 }
-.navBar{
-margin-top: 0px;
-width:100%;
-height:100%;
-padding-bottom: 0.1px;
-background-color: rgba(255, 255, 255, 0.41);
+
+.navBar {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.41);
+    position: relative;
 }
+
 nav ul {
-    font-family:Arial, Helvetica, sans-serif;
-    list-style: none; /* Removes the bullet points */
-    display: flex;    /* Puts items in a row */
-    gap: 85px;       /* Adds space between the links */
-    justify-self: center;
-    justify-items: center;
-    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    margin-top: 0px;
-    padding-top: 10px;
+    list-style: none;
+    display: flex;
+    gap: 85px;
+    justify-content: center;
+    padding: 10px 0;
+    margin: 0;
 }
 
 nav a {
-    text-decoration: none; /* Removes the underline */
+    text-decoration: none;
     color: #333;
+    transition: color 0.3s ease;
 }
 
+nav a:hover,
+nav a.active {
+    color: rgb(202, 167, 24);
+}
+
+
+/* ── 4. Carousel ── */
+
 .dog-carousel-container {
-    width: 85%; /* Slightly wider to show off the row */
-    height: 120%; /* Adjust height for the "cropped strip" look */
+    width: 85%;
+    height: 120%;
     margin: 40px auto;
     position: relative;
     overflow: hidden;
@@ -84,13 +121,12 @@ nav a {
 
 .dog-track {
     display: flex;
-    animation: scroll-left 35s linear infinite;
+    animation: scroll-left 13s linear infinite;
 }
-
 
 @keyframes scroll-left {
     from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    to   { transform: translateX(-50%); }
 }
 
 .dog-track img {
@@ -103,42 +139,10 @@ nav a {
 }
 
 
+/* ── 5. Home — Text & Info Cards ── */
 
-
-.intro{
-    justify-items: center;
-}
-
-.title{
-    font-family: 'Dancing Script';
-    font-size: 45px;
-    color:rgb(202, 167, 24);
-    letter-spacing: 1px;
-    padding:15px
-}
-.subHeader{
-    font-family: 'Dancing Script';
-    font-size: 35px;
-    color:rgb(202, 167, 24);
-    letter-spacing: 1px;
-    padding:15px
-}
-.subText{
-    font-family:Barlow;
-    color: rgb(101, 101, 101);
-    font-size: 16px;
-    width:800px;
-    padding-bottom: 40px;
-    text-align: center;
-    margin-top: -30px;
-}
-.subText.narrow{
-    width:90%;
-    font-size: 18;
-}
-
-.textContainer{
-    background-color: rgb(255, 255, 255);
+.textContainer {
+    background-color: white;
     width: 70%;
     justify-self: center;
     border-radius: 20px;
@@ -146,97 +150,263 @@ nav a {
 
 .textContainer.narrow {
     width: 55%;
+    margin-top: 30px;
 }
 
+.title {
+    font-family: 'Dancing Script';
+    font-size: 45px;
+    color: rgb(202, 167, 24);
+    letter-spacing: 1px;
+    padding: 0 15px 10px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
 
+.subHeader {
+    font-family: 'Dancing Script';
+    font-size: 35px;
+    color: rgb(202, 167, 24);
+    letter-spacing: 1px;
+    padding: 15px;
+    text-align: center;
+}
 
+.subText {
+    font-family: Barlow;
+    font-size: 16px;
+    color: rgb(101, 101, 101);
+    width: 800px;
+    text-align: center;
+    padding-bottom: 16px;
+    margin: -30px auto 0;
+}
 
+.subText.narrow {
+    width: 95%;
+    padding-bottom: 12px;
+    margin-top: -10px;
+}
 
-
-
-
-
-
-.infoContainer{
-    display: inline;
-    border: solid 1px rgba(255, 0, 0, 0);
+.infoContainer {
     display: flex;
     width: 70%;
-    height:450px;
+    height: auto;
+    gap: 16px;
+    align-items: stretch;
     justify-self: center;
     justify-content: center;
-    padding-bottom: 150px;
-}
-.infoTextContainer{
-    background-color: rgb(255, 255, 255);
-    width: 95%;
-    height:100%;
-    justify-self: center;
-    justify-items: center;
-    border-radius: 20px;
+    margin-top: 16px;
+    padding-bottom: 60px;
 }
 
-.infoIcons{
-    display: flex;
-    justify-self: center;
-}
-.passionIcon{
-    width:100px;
-    height:100px;
-    display: flex;
-}
-.tailoredIcon{
-    width:100px;
-    height:100px;
-    display: flex;
-    padding-top: 3px;
-}
-.convenientIcon{
-    width:90px;
-    height:90px;
-    display: flex;
-    padding-top: 9px;
-}
-.passion, .tailored, .convenient{
+.passion, .tailored, .convenient {
     width: 400px;
 }
-.subSubHeader{
-    font-family: 'Dancing Script';
-    font-size: 23px;
-    color:rgb(202, 167, 24);
-    letter-spacing: 1px;
-    padding: 5px;
-    text-align: center;
-    height:60px;
-    width:230px;
+
+.infoTextContainer {
+    background-color: white;
+    width: 95%;
+    height: 100%;
+    border-radius: 20px;
+    padding-bottom: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.infoSubText{
-    font-family: Barlow;
-    color: rgb(130, 130, 130);
-    font-size: 17px;
-    width:80%;
-    height:100px;
-    border: 1px rgba(26, 215, 26, 0) solid;
-    padding-bottom: 40px;
-    text-align: center;
-    margin-top: -30px;
+
+.infoIcons, .passionIcon, .tailoredIcon, .convenientIcon {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
     padding-top: 10px;
 }
 
-.buttonHolder{
-    padding:20px;
+.subSubHeader {
+    font-family: 'Dancing Script';
+    font-size: 23px;
+    color: rgb(202, 167, 24);
+    letter-spacing: 1px;
+    padding: 5px;
+    text-align: center;
+    width: 230px;
+    margin: 5px auto;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.infoButton{
-    outline: 0.1px solid black;
+
+.infoSubText {
+    font-family: Barlow;
+    font-size: 17px;
+    color: rgb(130, 130, 130);
+    width: 80%;
+    text-align: center;
+    margin: 5px auto 0;
+    padding: 0 0 5px;
+}
+
+
+/* ── 6. Shared Page Cards ── */
+
+.about-card {
+    padding: 20px 60px 20px;
+    box-sizing: border-box;
+}
+
+.services-card,
+.pricing-card {
+    padding: 20px 60px 40px;
+    box-sizing: border-box;
+}
+
+.contact-card {
+    padding: 20px 60px 30px;
+    box-sizing: border-box;
+}
+
+
+/* ── 7. Services Page ── */
+
+.service-item {
+    padding: 20px 0;
+}
+
+.service-name {
+    font-family: 'Dancing Script';
+    font-size: 36px;
+    color: rgb(202, 167, 24);
+    margin: 0 0 10px;
+}
+
+.service-desc {
+    font-family: Barlow;
+    font-size: 16px;
+    color: rgb(80, 80, 80);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.service-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+
+.services-btn-row {
+    text-align: center;
+    padding: 30px 0 10px;
+}
+
+.services-bottom {
+    text-align: center;
+    padding: 40px 0 60px;
+}
+
+.vaccine-notice {
+    font-family: Barlow;
+    font-style: italic;
+    font-size: 16px;
+    color: rgb(202, 167, 24);
+    margin-bottom: 20px;
+}
+
+
+/* ── 8. Pricing Page ── */
+
+.pricing-section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0 16px;
+}
+
+.pricing-section-line {
+    flex: 1;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.pricing-section-title {
+    font-family: 'Dancing Script';
+    font-size: 28px;
+    color: rgb(202, 167, 24);
+    white-space: nowrap;
+    margin: 0;
+}
+
+.price-list {
+    padding: 0 20px;
+}
+
+.price-row {
+    display: flex;
+    align-items: baseline;
+    margin: 6px 0;
+}
+
+.price-label, .price-value {
+    font-family: Barlow;
+    font-size: 15px;
+    color: #444;
+    white-space: nowrap;
+}
+
+.price-dots {
+    flex: 1;
+    border-bottom: 1px dotted #aaa;
+    margin: 0 6px 4px;
+}
+
+.addons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 40px;
+    padding-bottom: 10px;
+}
+
+.addon-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.addon-title {
+    font-family: 'Dancing Script';
+    font-size: 24px;
+    color: rgb(202, 167, 24);
+    margin: 0 0 6px;
+}
+
+.addon-price {
+    font-family: Barlow;
+    font-size: 16px;
+    color: #444;
+}
+
+.addon-desc {
+    font-family: Barlow;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.walkin-row {
+    padding: 16px 0;
+}
+
+.walkin-sub {
+    font-family: Barlow;
     font-size: 13px;
-    height:40px;
-    width:160px;
-    background-color: #ffffff00;
-    border-radius: 20px;
+    color: rgb(202, 167, 24);
 }
 
 
-
+/* ── 9. About Page — Team Section ── */
 
 .team-section {
     margin-top: 30px;
@@ -276,7 +446,7 @@ nav a {
     border-radius: 16px;
     padding: 60px 24px 30px;
     width: 100%;
-    height:750px;
+    height: 750px;
     box-sizing: border-box;
 }
 
@@ -301,25 +471,148 @@ nav a {
     font-size: 16px;
     color: white;
     line-height: 1.6;
-    margin: 0 0 12px;
     text-align: left;
+    margin: 0 0 12px;
 }
 
-.page-content {
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.page-title {
-    font-family: 'Dancing Script';
+/* ── 10. Contact Page ── */
+
+.contact-intro {
+    font-family: Barlow;
+    font-size: 16px;
     color: rgb(202, 167, 24);
-    font-size: 52px;
-    font-weight: 400;
-    letter-spacing: 3px;
     text-align: center;
+    line-height: 1.8;
+    margin: 0;
 }
+
+.contact-form-wrap {
+    width: 55%;
+    justify-self: center;
+    margin: 30px auto 0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-input,
+.contact-textarea {
+    font-family: Barlow;
+    font-size: 15px;
+    padding: 14px 16px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    outline: none;
+    background: white;
+}
+
+.contact-textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-btn-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.how-to-find {
+    width: 55%;
+    justify-self: center;
+    margin: 60px auto;
+}
+
+.find-us-address {
+    font-family: Barlow;
+    font-size: 16px;
+    color: #444;
+    text-align: center;
+    margin: 8px 0 24px;
+}
+
+.map-wrap {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+
+/* ── 11. Buttons ── */
+
+/* Outline dark — home cards & "Pricing Details" */
+.infoButton,
+.pricing-btn {
+    font-family: Barlow;
+    font-size: 14px;
+    background: none;
+    border: 1.5px solid #333;
+    border-radius: 20px;
+    color: #333;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.infoButton {
+    height: 40px;
+    width: 160px;
+    padding: 0;
+}
+
+.infoButton:hover,
+.pricing-btn:hover {
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+
+.buttonHolder {
+    padding: 8px 20px;
+    margin-top: auto;
+}
+
+/* Outline gold — "Book Online Now" */
+.book-btn {
+    font-family: Barlow;
+    font-size: 15px;
+    background: none;
+    border: 1.5px solid rgb(202, 167, 24);
+    border-radius: 20px;
+    color: rgb(202, 167, 24);
+    padding: 14px 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.book-btn:hover {
+    background-color: rgba(202, 167, 24, 0.1);
+}
+
+/* Filled gold — "Send Message" */
+.send-btn {
+    font-family: Barlow;
+    font-size: 15px;
+    background-color: rgb(202, 167, 24);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 14px 36px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-btn:hover {
+    background-color: rgb(180, 148, 18);
+}
+
+
+/* ── 12. Footer ── */
 
 .footer-collage {
     display: grid;
@@ -348,9 +641,10 @@ nav a {
 
 .footer-left p,
 .footer-right p {
-    margin: 4px 0;
     font-family: Barlow;
+    font-size: 14px;
     color: white;
+    margin: 4px 0;
 }
 
 .footer-icons {
@@ -360,11 +654,153 @@ nav a {
 
 .footer-icons a {
     color: white;
-    margin-right: 12px;
     text-decoration: none;
+    margin-right: 12px;
 }
 
 .footer-right {
     text-align: right;
 }
 
+
+/* ── 13. Mobile (max-width: 768px) ── */
+
+@media (max-width: 768px) {
+
+    /* Logo */
+    .logo-header {
+        padding: 14px 0 6px;
+    }
+    .jennyLogo, .mihshaLogo {
+        width: 55px;
+        padding: 0 12px;
+    }
+    .textLogo {
+        width: 110px;
+        top: -10px;
+    }
+    .textHeader {
+        font-size: 13px;
+        letter-spacing: 2px;
+        margin-top: -16px;
+
+    }
+
+    /* Nav */
+    nav ul {
+        gap: 16px;
+        flex-wrap: wrap;
+        font-size: 11px;
+        padding: 8px 10px;
+    }
+
+    /* Carousel */
+    .dog-carousel-container {
+        width: 100%;
+        margin: 5px auto 16px;
+    }
+    .dog-track img {
+        width: 20vw;
+        height: 200px;
+    }
+
+    /* Text containers */
+    .textContainer {
+        width: 92%;
+    }
+    .textContainer.narrow {
+        width: 92%;
+        margin-top: 15px;
+    }
+    .subText {
+        width: 90%;
+        font-size: 15px;
+    }
+
+    /* Home info cards */
+    .infoContainer {
+        flex-direction: column;
+        width: 90%;
+        padding-bottom: 40px;
+        align-items: center;
+        gap: 20px;
+    }
+    .passion, .tailored, .convenient {
+        width: 100%;
+    }
+    .infoTextContainer {
+        padding-bottom: 20px;
+    }
+
+    /* Card padding */
+    .about-card,
+    .services-card,
+    .pricing-card,
+    .contact-card {
+        padding: 20px 20px 24px;
+    }
+
+    /* About team */
+    .team-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .team-member {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Pricing */
+    .addons-grid {
+        grid-template-columns: 1fr;
+    }
+    .price-list {
+        padding: 0;
+    }
+
+    /* Contact */
+    .contact-form-wrap {
+        width: 92%;
+    }
+    .contact-btn-row {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+    .send-btn,
+    .book-btn {
+        width: 100%;
+        text-align: center;
+    }
+    .how-to-find {
+        width: 92%;
+        margin: 40px auto;
+    }
+
+    /* Footer collage */
+    .footer-collage {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 140px);
+    }
+    .footer-collage .tall {
+        grid-row: span 1;
+    }
+    .footer-collage img:last-child {
+        display: none;
+    }
+
+    /* Footer bar */
+    .footer-bar {
+        flex-direction: column;
+        padding: 30px 24px;
+        gap: 16px;
+    }
+    .footer-right {
+        text-align: left;
+    }
+
+    /* Services bottom */
+    .services-bottom {
+        padding: 30px 20px;
+    }
+}
