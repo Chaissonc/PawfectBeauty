@@ -145,12 +145,13 @@ nav a.active {
     background-color: white;
     width: 70%;
     justify-self: center;
+    margin: 0 auto;
     border-radius: 20px;
 }
 
 .textContainer.narrow {
     width: 55%;
-    margin-top: 30px;
+    margin: 30px auto 0;
 }
 
 .title {
@@ -197,7 +198,7 @@ nav a.active {
     align-items: stretch;
     justify-self: center;
     justify-content: center;
-    margin-top: 16px;
+    margin: 16px auto 0;
     padding-bottom: 60px;
 }
 
@@ -681,18 +682,18 @@ nav a.active {
         padding: 0 12%;
     }
     .jennyLogo, .mihshaLogo {
-        width: 65px;
+        width: 78px;
         padding: 0;
     }
     .textLogo {
-        width: 110px;
-        top: -10px;
+        width: 130px;
+        top: -12px;
     }
     .textHeader {
         width: 100%;
-        font-size: 13px;
+        font-size: 14px;
         letter-spacing: 2px;
-        margin-top: -16px;
+        margin-top: -18px;
     }
 
     /* Nav */
@@ -718,8 +719,8 @@ nav a.active {
         margin: 5px auto 16px;
     }
     .dog-track img {
-        width: 20vw;
-        height: 200px;
+        width: 24vw;
+        height: 240px;
     }
 
     /* Text containers */
@@ -733,6 +734,12 @@ nav a.active {
     .subText {
         width: 90%;
         font-size: 15px;
+    }
+
+    /* Home info cards subheaders */
+    .subSubHeader {
+        font-size: 27px;
+        font-weight: 700;
     }
 
     /* Home info cards */
