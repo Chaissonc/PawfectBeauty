@@ -671,27 +671,45 @@ nav a.active {
     .logo-header {
         padding: 14px 0 6px;
     }
+    .logo-holder {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 12%;
+    }
     .jennyLogo, .mihshaLogo {
-        width: 55px;
-        padding: 0 12px;
+        width: 65px;
+        padding: 0;
     }
     .textLogo {
         width: 110px;
         top: -10px;
     }
     .textHeader {
+        width: 100%;
         font-size: 13px;
         letter-spacing: 2px;
         margin-top: -16px;
-
     }
 
     /* Nav */
     nav ul {
-        gap: 16px;
+        gap: 0;
         flex-wrap: wrap;
-        font-size: 11px;
-        padding: 8px 10px;
+        font-size: 14px;
+        padding: 0;
+        justify-content: space-around;
+    }
+    nav ul li {
+        flex: 1;
+        text-align: center;
+    }
+    nav ul li a {
+        display: block;
+        padding: 16px 0;
     }
 
     /* Carousel */
@@ -721,6 +739,7 @@ nav a.active {
     .infoContainer {
         flex-direction: column;
         width: 90%;
+        margin: 16px auto 0;
         padding-bottom: 40px;
         align-items: center;
         gap: 20px;
@@ -729,7 +748,9 @@ nav a.active {
         width: 100%;
     }
     .infoTextContainer {
+        width: 100%;
         padding-bottom: 20px;
+        margin: 0 auto;
     }
 
     /* Card padding */
