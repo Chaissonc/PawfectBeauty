@@ -153,6 +153,7 @@ nav a.active {
     padding: 0 5px;
     box-sizing: border-box;
     border-radius: 15px;
+    margin-top: 6px;
 }
 
 
@@ -784,18 +785,22 @@ nav a.active {
 
     /* Carousel */
     .carousel-wrap {
-        width: 85%;
-        margin: 20px auto;
+        width: 100%;
+        margin: 8px auto;
         padding-bottom: 0px;
+        border-radius: 0px;
+        padding:0px
     }
     .dog-carousel-container {
         width: 100%;
         margin: 5px auto 16px;
-        height: 240px
+        height: 240px;
+        border-radius: 0px;
     }
     .dog-track img {
-        width: 24vw;
+        width: 90px;
         height: 240px;
+
     }
 
 .dog-track {
