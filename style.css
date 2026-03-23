@@ -91,7 +91,7 @@ nav ul {
     font-size: 14px;
     list-style: none;
     display: flex;
-    gap: 85px;
+    gap: 50px;
     justify-content: center;
     padding: 10px 0;
     margin: 0;
@@ -108,20 +108,36 @@ nav a.active {
     color: rgb(202, 167, 24);
 }
 
+.nav-short { display: none; }
+.nav-full  { display: inline; }
+
 
 /* ── 4. Carousel ── */
 
+.carousel-wrap {
+    background-color: rgb(255, 255, 255);
+    width: 62%;
+    max-width: 1300px;
+    margin: 20px auto 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 15px;
+    position: relative;
+}
+
+
 .dog-carousel-container {
-    width: 85%;
+    width: 100%;
     height: 120%;
-    margin: 40px auto;
+    margin: 0 auto;
     position: relative;
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .dog-track {
     display: flex;
-    animation: scroll-left 13s linear infinite;
+    animation: scroll-left 19s linear infinite;
 }
 
 @keyframes scroll-left {
@@ -131,22 +147,30 @@ nav a.active {
 
 .dog-track img {
     width: 150px;
-    height: 350px;
+    height: 375px;
     object-fit: cover;
     flex-shrink: 0;
     padding: 0 5px;
     box-sizing: border-box;
+    border-radius: 15px;
 }
 
 
 /* ── 5. Home — Text & Info Cards ── */
 
+.home-content {
+    width: 70%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
 .textContainer {
     background-color: white;
-    width: 70%;
+    width: 100%;
     justify-self: center;
     margin: 0 auto;
     border-radius: 20px;
+    box-sizing: border-box;
 }
 
 .textContainer.narrow {
@@ -192,23 +216,24 @@ nav a.active {
 
 .infoContainer {
     display: flex;
-    width: 70%;
+    width: 100%;
     height: auto;
     gap: 16px;
     align-items: stretch;
-    justify-self: center;
     justify-content: center;
     margin: 16px auto 0;
     padding-bottom: 60px;
+    box-sizing: border-box;
 }
 
 .passion, .tailored, .convenient {
-    width: 400px;
+    flex: 1;
+    min-width: 0;
 }
 
 .infoTextContainer {
     background-color: white;
-    width: 95%;
+    width: 100%;
     height: 100%;
     border-radius: 20px;
     padding-bottom: 16px;
@@ -411,7 +436,8 @@ nav a.active {
 
 .team-section {
     margin-top: 30px;
-    padding-bottom: 60px;
+    padding-bottom: 40px;
+    margin-bottom: 40px !important;
     text-align: center;
 }
 
@@ -474,6 +500,7 @@ nav a.active {
     line-height: 1.6;
     text-align: left;
     margin: 0 0 12px;
+    
 }
 
 
@@ -523,10 +550,44 @@ nav a.active {
     margin-top: 10px;
 }
 
+.form-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.form-popup {
+    background: white;
+    border-radius: 10px;
+    padding: 40px 48px;
+    text-align: center;
+    max-width: 380px;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+.form-popup-title {
+    font-family: Barlow;
+    font-size: 24px;
+    font-weight: 700;
+    color: #c8a800;
+    margin: 0 0 12px;
+}
+
+.form-popup-body {
+    font-family: Barlow;
+    font-size: 16px;
+    color: #444;
+    margin: 0 0 24px;
+}
+
 .how-to-find {
-    width: 55%;
-    justify-self: center;
-    margin: 60px auto;
+    margin-top: 30px;
+    margin-bottom: 40px !important;
 }
 
 .find-us-address {
@@ -634,7 +695,7 @@ nav a.active {
 }
 
 .footer-bar {
-    background-color: rgb(202, 167, 24);
+    background-color: rgb(206, 173, 63);
     display: flex;
     justify-content: space-between;
     padding: 40px 60px;
@@ -712,23 +773,48 @@ nav a.active {
         display: block;
         padding: 16px 0;
     }
+    .nav-short { display: inline; }
+    .nav-full  { display: none; }
+    .nav-home     { order: 1; }
+    .nav-services { order: 2; }
+    .nav-book     { order: 3; }
+    .nav-pricing  { order: 4; }
+    .nav-about    { order: 5; }
+    .nav-contact  { display: none; }
 
     /* Carousel */
+    .carousel-wrap {
+        width: 85%;
+        margin: 20px auto;
+        padding-bottom: 0px;
+    }
     .dog-carousel-container {
         width: 100%;
         margin: 5px auto 16px;
+        height: 240px
     }
     .dog-track img {
         width: 24vw;
         height: 240px;
     }
 
+.dog-track {
+    display: flex;
+    animation: scroll-left 8s linear infinite;
+}
+
+
+
     /* Text containers */
-    .textContainer {
+    .home-content {
         width: 92%;
     }
+
+    .textContainer {
+        width: 100%;
+    }
     .textContainer.narrow {
-        width: 92%;
+        width: 90%;
         margin-top: 15px;
     }
     .subText {
@@ -745,7 +831,7 @@ nav a.active {
     /* Home info cards */
     .infoContainer {
         flex-direction: column;
-        width: 90%;
+        width: 100%;
         margin: 16px auto 0;
         padding-bottom: 40px;
         align-items: center;

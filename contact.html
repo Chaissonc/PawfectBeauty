@@ -31,12 +31,12 @@
     <div class="navBar">
         <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="https://groomer.io/salon-booking/pawfectbeautyluxurygrooming" target="_blank">Book</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
+            <li class="nav-home"><a href="index.html"><span class="nav-full">Home</span><span class="nav-short">Home</span></a></li>
+            <li class="nav-about"><a href="about.html"><span class="nav-full">About Us</span><span class="nav-short">About</span></a></li>
+            <li class="nav-services"><a href="services.html"><span class="nav-full">Our Services</span><span class="nav-short">Services</span></a></li>
+            <li class="nav-pricing"><a href="pricing.html"><span class="nav-full">Pricing</span><span class="nav-short">Pricing</span></a></li>
+            <li class="nav-book"><a href="https://groomer.io/salon-booking/pawfectbeautyluxurygrooming" target="_blank"><span class="nav-full">Book Online</span><span class="nav-short">Book</span></a></li>
+            <li class="nav-contact"><a href="contact.html" class="active"><span class="nav-full">Contact Us</span><span class="nav-short">Contact</span></a></li>
         </ul>
         </nav>
     </div>
@@ -44,15 +44,16 @@
     <!-- Contact intro card -->
     <div class="textContainer narrow contact-card">
         <p class="title" style="text-align:center;">Contact Us</p>
-        <p class="contact-intro">Contact us at Pawfectbeautylv@gmail.com<br>/ (702) 954-6226<br>or create a ticket below.</p>
+        <p class="contact-intro">Contact us at Pawfectbeautylv@gmail.com<br>/ (702) 954-6226<br>or create a email below.</p>
     </div>
 
-    <!-- Form (mailto, no backend needed) -->
+    <!-- Form (Formspree) -->
     <div class="contact-form-wrap">
-        <form class="contact-form" action="mailto:Pawfectbeautylv@gmail.com" method="get" enctype="text/plain">
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/xeerbreg" method="POST">
             <input type="text" name="name" placeholder="Name" class="contact-input">
+            <input type="email" name="email" placeholder="Your Email" class="contact-input">
             <input type="text" name="subject" placeholder="Subject" class="contact-input">
-            <textarea name="body" placeholder="Message" class="contact-textarea"></textarea>
+            <textarea name="message" placeholder="Message" class="contact-textarea"></textarea>
             <div class="contact-btn-row">
                 <a href="#how-to-find-us"><button type="button" class="book-btn">How to find us &nbsp;&#8250;</button></a>
                 <button type="submit" class="send-btn">Send Message</button>
@@ -60,8 +61,17 @@
         </form>
     </div>
 
+    <!-- Success popup -->
+    <div id="form-success-overlay" class="form-overlay" style="display:none;">
+        <div class="form-popup">
+            <p class="form-popup-title">Message Sent!</p>
+            <p class="form-popup-body">Thanks for reaching out. We'll get back to you soon!</p>
+            <button class="send-btn" onclick="document.getElementById('form-success-overlay').style.display='none'">Close</button>
+        </div>
+    </div>
+
     <!-- How to find us -->
-    <div class="how-to-find" id="how-to-find-us">
+    <div class="textContainer narrow contact-card how-to-find" id="how-to-find-us">
         <p class="pricing-section-title" style="font-size:36px; text-align:center;">How to Find Us</p>
         <p class="find-us-address">Visit us at 8665 W Flamingo Rd Ste 105 Las Vegas, NV 89147</p>
         <div class="map-wrap">
@@ -75,13 +85,13 @@
 
     <footer>
         <div class="footer-collage">
-            <img src="Assets/Photos/Dogs/Dog1.PNG" alt="Dog" class="tall">
-            <img src="Assets/Photos/Dogs/Dog2.PNG" alt="Dog" class="tall">
-            <img src="Assets/Photos/Dogs/Dog3.PNG" alt="Dog">
-            <img src="Assets/Photos/Dogs/Dog5.PNG" alt="Dog">
-            <img src="Assets/Photos/Dogs/Dog7.PNG" alt="Dog" class="tall">
-            <img src="Assets/Photos/Dogs/Dog4.PNG" alt="Dog">
-            <img src="Assets/Photos/Dogs/Dog6.PNG" alt="Dog">
+            <img src="Assets/Photos/Dogs/Dog24.PNG" alt="Dog" class="tall">
+            <img src="Assets/Photos/Dogs/Dog27.PNG" alt="Dog" class="tall">
+            <img src="Assets/Photos/Dogs/Dog30.PNG" alt="Dog">
+            <img src="Assets/Photos/Dogs/Dog32.PNG" alt="Dog">
+            <img src="Assets/Photos/Dogs/Dog36.PNG" alt="Dog" class="tall">
+            <img src="Assets/Photos/Dogs/Dog39.PNG" alt="Dog">
+            <img src="Assets/Photos/Dogs/Dog42.PNG" alt="Dog">
         </div>
         <div class="footer-bar">
             <div class="footer-left">
