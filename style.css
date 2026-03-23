@@ -35,10 +35,15 @@
 
 /* ── 2. Base ── */
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     padding: 0;
     background-image: url("Assets/Photos/Background/marble.avif");
+    overflow-x: hidden;
 }
 
 
@@ -59,12 +64,12 @@ body {
 }
 
 .jennyLogo, .mihshaLogo {
-    width: 110px;
-    padding: 8px 170px 0;
+    width: clamp(78px, 9vw, 110px);
+    padding: 8px clamp(5px, 10vw, 170px) 0;
 }
 
 .textLogo {
-    width: 200px;
+    width: clamp(130px, 15vw, 200px);
     position: relative;
     top: -27px;
 }
@@ -175,7 +180,8 @@ nav a.active {
 }
 
 .textContainer.narrow {
-    width: 55%;
+    width: 85%;
+    max-width: 800px;
     margin: 30px auto 0;
 }
 
@@ -203,7 +209,8 @@ nav a.active {
     font-family: Barlow;
     font-size: 16px;
     color: rgb(101, 101, 101);
-    width: 800px;
+    width: 90%;
+    max-width: 800px;
     text-align: center;
     padding-bottom: 16px;
     margin: -30px auto 0;
@@ -517,7 +524,8 @@ nav a.active {
 }
 
 .contact-form-wrap {
-    width: 55%;
+    width: 90%;
+    max-width: 600px;
     justify-self: center;
     margin: 30px auto 0;
 }
@@ -783,17 +791,21 @@ nav a.active {
     .nav-about    { order: 5; }
     .nav-contact  { display: none; }
 
+    .textContainer{
+        margin-top: -20px;
+    }
     /* Carousel */
     .carousel-wrap {
         width: 100%;
         margin: 8px auto;
         padding-bottom: 0px;
         border-radius: 0px;
-        padding:0px
+        padding:0px;
+        margin-top: 0px;
     }
     .dog-carousel-container {
         width: 100%;
-        margin: 5px auto 16px;
+        margin: 5px 0 16px;
         height: 240px;
         border-radius: 0px;
     }
