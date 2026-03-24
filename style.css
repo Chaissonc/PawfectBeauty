@@ -48,6 +48,14 @@ body {
     overflow-x: hidden;
 }
 
+body::before {
+    content: '';
+    display: block;
+    height: 300px;
+    margin-top: -300px;
+    background-color: white;
+}
+
 
 /* ── 3. Header & Navigation ── */
 
