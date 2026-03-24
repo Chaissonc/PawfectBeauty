@@ -85,6 +85,13 @@ body {
     text-align: center;
 }
 
+.women-owned {
+    font-family: Barlow;
+    font-size: 14px;
+    color: white;
+    margin: 4px 0;
+}
+
 .navBar {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.41);
