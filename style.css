@@ -37,12 +37,14 @@
 
 html {
     overflow-x: hidden;
+    background-color: white;
 }
 
 body {
     margin: 0;
     padding: 0;
     background-image: url("Assets/Photos/Background/marble.avif");
+    background-color: rgb(206, 173, 63);
     overflow-x: hidden;
 }
 
@@ -659,7 +661,7 @@ nav a.active {
 .book-btn {
     font-family: Barlow;
     font-size: 15px;
-    background: none;
+    background: white;
     border: 1.5px solid rgb(202, 167, 24);
     border-radius: 20px;
     color: rgb(202, 167, 24);
