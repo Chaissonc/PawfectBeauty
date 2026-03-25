@@ -440,10 +440,13 @@ nav a.active {
 }
 
 .testimonial-stars {
-    color: #c9a84c;
+    color: #FBBC04;
     font-size: 22px;
     letter-spacing: 2px;
     margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .testimonial-text {
@@ -892,6 +895,7 @@ nav a.active {
     margin-right: 12px;
 }
 
+
 .google-review-badge {
     display: inline-flex;
     align-items: center;
@@ -906,7 +910,7 @@ nav a.active {
 }
 
 .google-review-badge .g-stars {
-    color: #c9a84c;
+    color: #FBBC04;
     font-size: 14px;
     letter-spacing: 1px;
     line-height: 1;
@@ -927,6 +931,10 @@ nav a.active {
 
 .footer-right {
     text-align: right;
+}
+
+.footer-right p:last-child {
+    margin-top: 10px;
 }
 
 .footer-hours {
@@ -1188,7 +1196,7 @@ nav a.active {
     /* Footer bar */
     .footer-bar {
         flex-direction: column;
-        padding: 20px 20px;
+        padding: 12px 6px 14px;
         gap: 16px;
         align-items: stretch;
     }
@@ -1211,14 +1219,14 @@ nav a.active {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding-top: 14px;
+        padding-top: 0;
         gap: 6px;
     }
     .footer-hours-day .day-name {
-        font-size: 11px;
+        font-size: 13px;
     }
     .footer-hours-day .day-time {
-        font-size: 10px;
+        font-size: 12px;
     }
     .footer-icons {
         font-size: 18px;
