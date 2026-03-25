@@ -716,7 +716,7 @@ nav a.active {
     background-color: rgb(206, 173, 63);
     display: flex;
     justify-content: space-between;
-    padding: 20px 60px;
+    padding: 40px 60px;
 }
 
 .footer-left p,
@@ -745,22 +745,6 @@ nav a.active {
 
 .footer-right {
     text-align: right;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.footer-right .elfsight-app-53cf7788-cc0f-4809-9741-a2901555fd0c {
-    margin-top: 7px;
-}
-
-.footer-black-box {
-    width: 70%;
-    height: 30px;
-    background-color: rgb(206, 173, 63);
-    margin-top: -40px;
-    position: relative;
-    z-index: 10;
 }
 
 
@@ -986,15 +970,9 @@ nav a.active {
     }
 
     /* Footer bar */
-    .footer-right .elfsight-app-53cf7788-cc0f-4809-9741-a2901555fd0c {
-        transform: scale(0.75);
-        transform-origin: right center;
-        margin-top: -8px;
-    }
-
     .footer-bar {
         flex-direction: row;
-        padding: 10px 20px 4px;
+        padding: 20px 20px;
         gap: 10px;
         align-items: flex-start;
     }
@@ -1019,14 +997,4 @@ nav a.active {
     .services-bottom {
         padding: 30px 20px;
     }
-
-    .footer-black-box {
-    width: 75%;
-    height: 22px;
-    background-color: rgb(206, 173, 63);
-    margin-top: -40px;
-    position: relative;
-    z-index: 10;
-    }
 }
-
