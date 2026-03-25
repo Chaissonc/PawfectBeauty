@@ -24,12 +24,14 @@
     src: url('Assets/Fonts/Dancing_Script/static/DancingScript-Regular.ttf') format('truetype');
     font-weight: 400 700;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Barlow';
     src: url('Assets/Fonts/Barlow/Barlow-Regular.ttf') format('truetype');
     font-style: normal;
+    font-display: swap;
 }
 
 
@@ -67,11 +69,13 @@ body {
 
 .jennyLogo, .mihshaLogo {
     width: clamp(78px, 9vw, 110px);
+    height: auto;
     padding: 8px clamp(5px, 10vw, 170px) 0;
 }
 
 .textLogo {
     width: clamp(130px, 15vw, 200px);
+    height: auto;
     position: relative;
     top: -27px;
 }
@@ -326,6 +330,22 @@ nav a.active {
     margin: 0 0 10px;
 }
 
+.service-intro {
+    font-family: Barlow;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+    margin: 0 0 28px;
+}
+
+.service-subtext {
+    font-family: Barlow;
+    font-size: 14px;
+    color: #999;
+    line-height: 1.7;
+    margin: 6px 0 0;
+}
+
 .service-desc {
     font-family: Barlow;
     font-size: 16px;
@@ -337,6 +357,128 @@ nav a.active {
 .service-divider {
     border: none;
     border-top: 1px solid #ddd;
+    margin: 0;
+}
+
+.faq-item {
+    padding: 24px 0;
+}
+
+.faq-question {
+    font-family: 'Barlow', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2a2a2a;
+    margin: 0 0 10px;
+}
+
+.faq-answer {
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.faq-link {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.testimonials-section {
+    padding: 48px 20px 56px;
+    background: #fafafa;
+}
+
+.testimonials-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 32px;
+    padding: 8px 32px 24px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #ddd transparent;
+}
+
+.testimonials-grid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.testimonials-grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.testimonials-grid::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 3px;
+}
+
+.testimonial-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    padding: 32px;
+    min-width: 340px;
+    max-width: 380px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.testimonial-dog-photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border: 3px solid #f0f0f0;
+}
+
+.testimonial-stars {
+    color: #c9a84c;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+.testimonial-text {
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+    margin: 0 0 16px;
+}
+
+.testimonial-author {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2a2a2a;
+    margin: 0;
+}
+
+.testimonial-cta {
+    border: 2px dashed #ddd;
+    background: #fafafa;
+    box-shadow: none;
+    justify-content: center;
+    gap: 16px;
+}
+
+.testimonial-cta-paw {
+    font-size: 40px;
+}
+
+.testimonial-cta-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2a2a2a;
     margin: 0;
 }
 
@@ -616,6 +758,10 @@ nav a.active {
     margin: 8px 0 24px;
 }
 
+.about-map-mobile {
+    display: none;
+}
+
 .map-wrap {
     width: 100%;
     border-radius: 8px;
@@ -715,8 +861,14 @@ nav a.active {
 .footer-bar {
     background-color: rgb(206, 173, 63);
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     padding: 40px 60px;
+    gap: 24px;
+}
+
+.footer-bar-top {
+    display: flex;
+    justify-content: space-between;
 }
 
 .footer-left p,
@@ -730,12 +882,42 @@ nav a.active {
 .footer-icons {
     margin-top: 15px;
     font-size: 22px;
+    display: flex;
+    align-items: center;
 }
 
 .footer-icons a {
     color: white;
     text-decoration: none;
     margin-right: 12px;
+}
+
+.google-review-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    background: #fff;
+    border-radius: 8px;
+    padding: 4px 8px;
+    vertical-align: middle;
+    margin-left: 4px;
+    margin-top: -3px;
+}
+
+.google-review-badge .g-stars {
+    color: #c9a84c;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.google-review-badge .g-rating {
+    color: #2a2a2a;
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
 }
 
 .footer-phone {
@@ -747,6 +929,37 @@ nav a.active {
     text-align: right;
 }
 
+.footer-hours {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    padding-bottom: 20px;
+}
+
+.footer-hours-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+}
+
+.footer-hours-day .day-name {
+    font-family: Barlow;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-hours-day .day-time {
+    font-family: Barlow;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.85);
+    white-space: nowrap;
+}
 
 .footer-mobile-contact {
     display: none;
@@ -903,6 +1116,9 @@ nav a.active {
     .addons-grid {
         grid-template-columns: 1fr;
     }
+    .addon-item {
+        text-align: center;
+    }
     .price-list {
         padding: 0;
     }
@@ -971,10 +1187,16 @@ nav a.active {
 
     /* Footer bar */
     .footer-bar {
-        flex-direction: row;
+        flex-direction: column;
         padding: 20px 20px;
+        gap: 16px;
+        align-items: stretch;
+    }
+    .footer-bar-top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         gap: 10px;
-        align-items: flex-start;
     }
     .footer-left,
     .footer-right {
@@ -985,6 +1207,19 @@ nav a.active {
         font-size: 11px;
         margin: 3px 0;
     }
+    .footer-hours {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-top: 14px;
+        gap: 6px;
+    }
+    .footer-hours-day .day-name {
+        font-size: 11px;
+    }
+    .footer-hours-day .day-time {
+        font-size: 10px;
+    }
     .footer-icons {
         font-size: 18px;
         margin-top: 8px;
@@ -993,8 +1228,43 @@ nav a.active {
         text-align: right;
     }
 
+    .about-map-mobile {
+        display: block;
+    }
+
+    .service-name-long {
+        font-size: 33px;
+    }
+
     /* Services bottom */
     .services-bottom {
         padding: 30px 20px;
     }
+
+    .testimonials-grid {
+        flex-direction: column;
+        overflow-x: visible;
+        align-items: center;
+        padding: 8px 16px 16px;
+    }
+
+    .testimonial-card {
+        min-width: unset;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .google-review-badge {
+        padding: 2px 5px;
+        gap: 3px;
+    }
+
+    .google-review-badge .g-stars {
+        font-size: 11px;
+    }
+
+    .google-review-badge .g-rating {
+        font-size: 11px;
+    }
+
 }

@@ -10,4 +10,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://www.pawfectbeauty.com/sitemap.xml
+Sitemap: https://pawfectbeauty.com/sitemap.xml
