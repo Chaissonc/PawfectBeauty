@@ -872,6 +872,7 @@ nav a.active {
 .footer-bar-top {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .footer-left p,
@@ -939,18 +940,17 @@ nav a.active {
 
 .footer-hours {
     display: flex;
-    justify-content: space-between;
-    gap: 8px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-    padding-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
 }
 
 .footer-hours-day {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 4px;
-    flex: 1;
+    gap: 10px;
+    width: 200px;
 }
 
 .footer-hours-day .day-name {
@@ -960,6 +960,7 @@ nav a.active {
     color: white;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    width: 90px;
 }
 
 .footer-hours-day .day-time {
@@ -1203,6 +1204,7 @@ nav a.active {
     .footer-bar-top {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-between;
         gap: 10px;
     }
@@ -1216,16 +1218,34 @@ nav a.active {
         margin: 3px 0;
     }
     .footer-hours {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding-top: 0;
-        gap: 6px;
+        order: -1;
+        flex-direction: column;
+        align-items: center;
+        width: 98%;
+        margin: 0 auto;
+        padding: 0 9%;
+        gap: 5px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+        padding-bottom: 14px;
+    }
+    .footer-hours-day {
+        width: 100%;
+        gap: 0;
+    }
+    .footer-hours-day::after {
+        content: "";
+        order: 1;
+        flex: 1;
+        border-bottom: 2px dotted rgba(255, 255, 255, 0.3);
+        margin: 0 8px;
+        align-self: center;
     }
     .footer-hours-day .day-name {
-        font-size: 13px;
+        font-size: 12px;
+        width: auto;
     }
     .footer-hours-day .day-time {
+        order: 2;
         font-size: 12px;
     }
     .footer-icons {
