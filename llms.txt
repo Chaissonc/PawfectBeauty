@@ -9,7 +9,7 @@
 - **Phone:** (702) 954-6226
 - **Email:** Pawfectbeautylv@gmail.com
 - **Website:** https://pawfectbeauty.com
-- **Hours:** Book online for current availability
+- **Hours:** Tuesday–Saturday, 8 AM–4 PM. Closed Sunday and Monday.
 
 ## Services
 
@@ -40,3 +40,12 @@
 - All vaccine records required at drop-off
 - Walk-ins welcome (subject to availability)
 - Book online: https://groomer.io/salon-booking/pawfectbeautyluxurygrooming
+
+## Pages
+
+- / Home page — dog grooming salon overview, services summary, testimonials
+- /services/ Dog grooming services offered
+- /pricing/ Transparent pricing by dog size
+- /about/ Meet Mihsha and Jenny
+- /faq/ Booking, vaccines, anxious dogs, grooming frequency
+- /contact/ Location, map, contact form
