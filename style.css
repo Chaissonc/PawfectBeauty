@@ -1280,16 +1280,26 @@ nav a.active {
     }
 
     .testimonials-grid {
-        flex-direction: column;
-        overflow-x: visible;
-        align-items: center;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
         padding: 8px 16px 16px;
+        gap: 16px;
+        scrollbar-width: none;
+    }
+
+    .testimonials-grid::-webkit-scrollbar {
+        display: none;
     }
 
     .testimonial-card {
-        min-width: unset;
-        max-width: 100%;
-        width: 100%;
+        min-width: calc(75vw);
+        max-width: calc(75vw);
+        width: calc(75vw);
+        scroll-snap-align: center;
+        flex-shrink: 0;
     }
 
     .google-review-badge {
