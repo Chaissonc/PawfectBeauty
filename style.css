@@ -209,6 +209,20 @@ nav a.active {
     text-align: center;
 }
 
+@media (min-width: 769px) {
+    .title {
+        font-size: 32px;
+        letter-spacing: 0.5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 24px;
+        letter-spacing: 0.3px;
+    }
+}
+
 .subHeader {
     font-family: 'Dancing Script';
     font-size: 35px;
@@ -1130,6 +1144,9 @@ nav a.active {
     .team-member {
         max-width: 100%;
         width: 100%;
+    }
+    .bio-card {
+        height: auto;
     }
 
     /* Pricing */
