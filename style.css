@@ -35,6 +35,81 @@
 }
 
 
+/* ── 1.5. Gold Foil Design Tokens ── */
+
+:root {
+    --gold: rgb(202, 167, 24);
+    --gold-deep: #8f7112;
+    --gold-line: rgba(202, 167, 24, 0.4);
+    --gold-line-soft: rgba(202, 167, 24, 0.16);
+    --gold-glow: rgba(202, 167, 24, 0.1);
+
+    /* Filigree corner ornament — real gold-foil scrollwork asset, oriented top-left by default */
+    --filigree-img: url("Assets/Icons/Filigree.png");
+    /* Tones the asset's bright yellow down toward the brand's muted gold */
+    --filigree-filter: brightness(0.82) saturate(0.8) sepia(0.25);
+}
+
+/* Diagonal filigree corner scrolls — shared by every card */
+.textContainer,
+.infoTextContainer,
+.form-popup,
+.footer-mobile-contact {
+    position: relative;
+}
+
+.textContainer::before,
+.infoTextContainer::before,
+.form-popup::before,
+.footer-mobile-contact::before,
+.textContainer::after,
+.infoTextContainer::after,
+.form-popup::after,
+.footer-mobile-contact::after {
+    content: '';
+    position: absolute;
+    width: 54px;
+    height: 54px;
+    background-image: var(--filigree-img);
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.92;
+    filter: var(--filigree-filter);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.textContainer::before,
+.infoTextContainer::before,
+.form-popup::before,
+.footer-mobile-contact::before {
+    top: 6px;
+    left: 6px;
+    transform-origin: top left;
+}
+
+.textContainer::after,
+.infoTextContainer::after,
+.form-popup::after,
+.footer-mobile-contact::after {
+    bottom: 6px;
+    right: 6px;
+    transform: rotate(180deg);
+    transform-origin: center;
+}
+
+/* Home intro card ("Dog Grooming Salon in Las Vegas, NV") keeps the plain gold border, no flourish */
+.textContainer:not(.narrow)::before,
+.textContainer:not(.narrow)::after {
+    display: none;
+}
+
+@keyframes gold-sweep {
+    from { transform: translateX(-130%) skewX(-12deg); }
+    to   { transform: translateX(230%) skewX(-12deg); }
+}
+
+
 /* ── 2. Base ── */
 
 html {
@@ -50,6 +125,14 @@ body {
     overflow-x: hidden;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
 
 /* ── 3. Header & Navigation ── */
 
@@ -57,9 +140,31 @@ body {
     display: inline-block;
     width: 100%;
     height: auto;
-    padding-bottom: 6px;
+    padding-bottom: 14px;
     background-color: white;
+    background-image: linear-gradient(to right, transparent, var(--gold-line) 20%, var(--gold-line) 80%, transparent);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 1px;
+    position: relative;
 }
+
+.logo-header::before,
+.logo-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 185px;
+    height: 185px;
+    background-image: var(--filigree-img);
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: var(--filigree-filter);
+    pointer-events: none;
+}
+
+.logo-header::before { left: 0; }
+.logo-header::after  { right: 0; transform: scaleX(-1); }
 
 .logo-holder {
     width: fit-content;
@@ -91,6 +196,29 @@ body {
     text-align: center;
 }
 
+.header-phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    font-family: Barlow;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: var(--gold);
+    text-decoration: none;
+    margin: 8px 0 0;
+}
+
+.header-phone svg {
+    flex-shrink: 0;
+}
+
+.header-phone:hover {
+    text-decoration: underline;
+}
+
 .women-owned {
     font-family: Barlow;
     font-size: 14px;
@@ -100,30 +228,54 @@ body {
 
 .navBar {
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.41);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.36));
+    border-bottom: 1px solid var(--gold-line-soft);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     position: relative;
 }
 
 nav ul {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-family: 'Barlow', Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
     list-style: none;
     display: flex;
     gap: 50px;
     justify-content: center;
-    padding: 10px 0;
+    padding: 12px 0;
     margin: 0;
 }
 
 nav a {
     text-decoration: none;
     color: #333;
+    position: relative;
+    padding-bottom: 5px;
     transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 1.5px;
+    background-color: var(--gold);
+    transition: width 0.3s ease, left 0.3s ease;
 }
 
 nav a:hover,
 nav a.active {
     color: rgb(202, 167, 24);
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+    left: 0;
 }
 
 .nav-short { display: none; }
@@ -141,6 +293,10 @@ nav a.active {
     overflow: hidden;
     padding: 15px;
     position: relative;
+    border: 1px solid var(--gold-line);
+    box-shadow:
+        0 0 0 4px var(--gold-glow),
+        0 14px 34px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -190,6 +346,10 @@ nav a.active {
     margin: 0 auto;
     border-radius: 20px;
     box-sizing: border-box;
+    border: 1px solid var(--gold-line);
+    box-shadow:
+        0 0 0 4px var(--gold-glow),
+        0 14px 34px rgba(0, 0, 0, 0.07);
 }
 
 .textContainer.narrow {
@@ -207,6 +367,62 @@ nav a.active {
     margin-top: 0;
     margin-bottom: 15px;
     text-align: center;
+}
+
+.title::before,
+.title::after,
+.subHeader::before,
+.subHeader::after,
+.subSubHeader::before,
+.subSubHeader::after,
+.service-name::before,
+.service-name::after,
+.pricing-section-title::before,
+.pricing-section-title::after,
+.member-name::before,
+.member-name::after,
+.addon-title::before,
+.addon-title::after {
+    content: '\2726';
+    display: inline-block;
+    font-size: 0.42em;
+    color: var(--gold);
+    opacity: 0.85;
+    vertical-align: middle;
+    animation: sparkle-twinkle 3.2s ease-in-out infinite;
+}
+
+.title::before,
+.subHeader::before,
+.subSubHeader::before,
+.service-name::before,
+.pricing-section-title::before,
+.member-name::before,
+.addon-title::before { margin-right: 0.5em; }
+
+.title::after,
+.subHeader::after,
+.subSubHeader::after,
+.service-name::after,
+.pricing-section-title::after,
+.member-name::after,
+.addon-title::after { margin-left: 0.5em; animation-delay: 1.1s; }
+
+@keyframes sparkle-twinkle {
+    0%, 100% { opacity: 0.5; transform: scale(0.9); }
+    50%      { opacity: 1; transform: scale(1.15); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .title::before, .title::after,
+    .subHeader::before, .subHeader::after,
+    .subSubHeader::before, .subSubHeader::after,
+    .service-name::before, .service-name::after,
+    .pricing-section-title::before, .pricing-section-title::after,
+    .member-name::before, .member-name::after,
+    .addon-title::before, .addon-title::after {
+        animation: none;
+    }
 }
 
 @media (min-width: 769px) {
@@ -276,6 +492,20 @@ nav a.active {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid var(--gold-line);
+    box-shadow:
+        0 0 0 4px var(--gold-glow),
+        0 14px 34px rgba(0, 0, 0, 0.07);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+@media (min-width: 769px) {
+    .infoTextContainer:hover {
+        transform: translateY(-4px);
+        box-shadow:
+            0 0 0 4px rgba(202, 167, 24, 0.16),
+            0 20px 40px rgba(0, 0, 0, 0.1);
+    }
 }
 
 .infoIcons, .passionIcon, .tailoredIcon, .convenientIcon {
@@ -317,6 +547,12 @@ nav a.active {
 .about-card {
     padding: 20px 60px 20px;
     box-sizing: border-box;
+}
+
+/* Intro card and team card read too thin at the standard "narrow" width — widen just these two */
+.about-card:not(.about-map-mobile) {
+    width: 95%;
+    max-width: 1050px;
 }
 
 .services-card,
@@ -370,7 +606,8 @@ nav a.active {
 
 .service-divider {
     border: none;
-    border-top: 1px solid #ddd;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-line) 50%, transparent);
     margin: 0;
 }
 
@@ -401,7 +638,7 @@ nav a.active {
 
 .testimonials-section {
     padding: 48px 20px 56px;
-    background: #fafafa;
+    background: #faf7f0;
 }
 
 .testimonials-grid {
@@ -432,7 +669,10 @@ nav a.active {
 .testimonial-card {
     background: #fff;
     border-radius: 16px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    border: 1px solid var(--gold-line);
+    box-shadow:
+        0 0 0 4px var(--gold-glow),
+        0 8px 24px rgba(0,0,0,0.06);
     padding: 32px;
     min-width: 340px;
     max-width: 380px;
@@ -450,7 +690,8 @@ nav a.active {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 16px;
-    border: 3px solid #f0f0f0;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--gold-line);
 }
 
 .testimonial-stars {
@@ -480,8 +721,8 @@ nav a.active {
 }
 
 .testimonial-cta {
-    border: 2px dashed #ddd;
-    background: #fafafa;
+    border: 2px dashed var(--gold-line);
+    background: #faf7f0;
     box-shadow: none;
     justify-content: center;
     gap: 16px;
@@ -530,7 +771,11 @@ nav a.active {
 .pricing-section-line {
     flex: 1;
     height: 1px;
-    background-color: #ccc;
+    background: linear-gradient(to right, transparent, var(--gold-line));
+}
+
+.pricing-section-header .pricing-section-line:last-child {
+    background: linear-gradient(to left, transparent, var(--gold-line));
 }
 
 .pricing-section-title {
@@ -630,7 +875,7 @@ nav a.active {
     flex-direction: column;
     align-items: center;
     flex: 1;
-    max-width: 350px;
+    max-width: 430px;
 }
 
 .team-photo {
@@ -642,6 +887,7 @@ nav a.active {
     z-index: 1;
     position: relative;
     border: 4px solid white;
+    box-shadow: 0 0 0 3px var(--gold-line), 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
 .bio-card {
@@ -649,9 +895,31 @@ nav a.active {
     border-radius: 16px;
     padding: 60px 24px 30px;
     width: 100%;
-    height: 750px;
+    height: 460px;
     box-sizing: border-box;
+    border: 1px solid var(--gold-deep);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+        0 14px 34px rgba(0, 0, 0, 0.12);
+    position: relative;
 }
+
+.bio-card::before,
+.bio-card::after {
+    content: '';
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    background-image: var(--filigree-img);
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: var(--filigree-filter) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+    opacity: 0.95;
+    pointer-events: none;
+}
+
+.bio-card::before { top: 10px; left: 10px; }
+.bio-card::after { bottom: 10px; right: 10px; transform: rotate(180deg); }
 
 .member-name {
     font-family: 'Dancing Script';
@@ -713,6 +981,13 @@ nav a.active {
     border-radius: 4px;
     outline: none;
     background: white;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px var(--gold-glow);
 }
 
 .contact-textarea {
@@ -744,7 +1019,10 @@ nav a.active {
     text-align: center;
     max-width: 380px;
     width: 90%;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    border: 1px solid var(--gold-line);
+    box-shadow:
+        0 0 0 4px var(--gold-glow),
+        0 8px 32px rgba(0,0,0,0.18);
 }
 
 .form-popup-title {
@@ -788,31 +1066,38 @@ nav a.active {
 
 /* ── 11. Buttons ── */
 
-/* Outline dark — home cards & "Pricing Details" */
+/* Outline gold — shared by every outline button: home cards, "Pricing Details", "Book Online Now" */
 .infoButton,
-.pricing-btn {
+.pricing-btn,
+.book-btn {
     font-family: Barlow;
-    font-size: 14px;
-    background: none;
-    border: 1.5px solid #333;
-    border-radius: 20px;
-    color: #333;
-    padding: 10px 30px;
+    font-size: 16px;
+    background: white;
+    border: 1.5px solid var(--gold);
+    border-radius: 24px;
+    color: var(--gold);
+    padding: 14px 38px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
 }
 
 .infoButton {
-    height: 40px;
-    width: 160px;
+    height: 48px;
+    width: 190px;
     padding: 0;
 }
 
-.infoButton:hover,
-.pricing-btn:hover {
-    background-color: black;
-    color: white;
-    border-color: black;
+.book-btn {
+    font-size: 17px;
+    padding: 17px 46px;
+}
+
+.book-btn-large {
+    font-size: 22px;
+    padding: 22px 64px;
 }
 
 .buttonHolder {
@@ -820,32 +1105,47 @@ nav a.active {
     margin-top: auto;
 }
 
-/* Outline gold — "Book Online Now" */
-.book-btn {
-    font-family: Barlow;
-    font-size: 15px;
-    background: white;
-    border: 1.5px solid rgb(202, 167, 24);
-    border-radius: 20px;
-    color: rgb(202, 167, 24);
-    padding: 14px 40px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.infoButton::before,
+.pricing-btn::before,
+.book-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 45%;
+    background: linear-gradient(120deg, transparent, rgba(202, 167, 24, 0.4), transparent);
+    transform: translateX(-130%) skewX(-12deg);
+    pointer-events: none;
 }
 
+.infoButton:hover,
+.pricing-btn:hover,
 .book-btn:hover {
     background-color: rgba(202, 167, 24, 0.1);
+}
+
+.infoButton:hover::before,
+.pricing-btn:hover::before,
+.book-btn:hover::before {
+    animation: gold-sweep 0.9s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .infoButton:hover::before,
+    .pricing-btn:hover::before,
+    .book-btn:hover::before {
+        animation: none;
+    }
 }
 
 /* Filled gold — "Send Message" */
 .send-btn {
     font-family: Barlow;
-    font-size: 15px;
+    font-size: 17px;
     background-color: rgb(202, 167, 24);
     color: white;
     border: none;
-    border-radius: 20px;
-    padding: 14px 36px;
+    border-radius: 24px;
+    padding: 17px 42px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -881,6 +1181,8 @@ nav a.active {
     flex-direction: column;
     padding: 40px 60px;
     gap: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 -1px 0 var(--gold-deep);
 }
 
 .footer-bar-top {
@@ -908,6 +1210,11 @@ nav a.active {
     color: white;
     text-decoration: none;
     margin-right: 12px;
+    transition: opacity 0.25s ease;
+}
+
+.footer-icons a:hover {
+    opacity: 0.7;
 }
 
 
@@ -1005,7 +1312,27 @@ nav a.active {
 
     /* Logo */
     .logo-header {
-        padding: 14px 0 6px;
+        padding: 14px 0 10px;
+    }
+    .logo-header::before,
+    .logo-header::after {
+        width: 95px;
+        height: 95px;
+        top: 0;
+    }
+    .logo-header::before { left: 0; }
+    .logo-header::after  { right: 0; }
+
+    .textContainer::before,
+    .infoTextContainer::before,
+    .form-popup::before,
+    .footer-mobile-contact::before,
+    .textContainer::after,
+    .infoTextContainer::after,
+    .form-popup::after,
+    .footer-mobile-contact::after {
+        width: 32px;
+        height: 32px;
     }
     .logo-holder {
         width: 100%;
@@ -1030,12 +1357,17 @@ nav a.active {
         letter-spacing: 2px;
         margin-top: -18px;
     }
+    .header-phone {
+        font-size: 13px;
+        margin-top: 6px;
+    }
 
     /* Nav */
     nav ul {
         gap: 0;
         flex-wrap: wrap;
-        font-size: 14px;
+        font-size: 12px;
+        letter-spacing: 0.4px;
         padding: 0;
         justify-content: space-around;
     }
@@ -1057,7 +1389,7 @@ nav a.active {
     .nav-contact  { display: none; }
 
     .textContainer{
-        margin-top: -20px;
+        margin-top: 16px;
     }
     /* Carousel */
     .carousel-wrap {
@@ -1092,6 +1424,15 @@ nav a.active {
         width: 92%;
     }
 
+    .textContainer,
+    .infoTextContainer,
+    .testimonial-card,
+    .carousel-wrap {
+        box-shadow:
+            0 0 0 3px var(--gold-glow),
+            0 8px 22px rgba(0, 0, 0, 0.07);
+    }
+
     .textContainer {
         width: 100%;
     }
@@ -1108,6 +1449,11 @@ nav a.active {
     .subSubHeader {
         font-size: 27px;
         font-weight: 700;
+    }
+
+    .infoIcons, .passionIcon, .tailoredIcon, .convenientIcon {
+        width: 72px;
+        height: 72px;
     }
 
     /* Home info cards */
@@ -1200,6 +1546,10 @@ nav a.active {
         border-radius: 20px;
         padding: 24px 24px 28px;
         box-sizing: border-box;
+        border: 1px solid var(--gold-line);
+        box-shadow:
+            0 0 0 3px var(--gold-glow),
+            0 10px 26px rgba(0, 0, 0, 0.08);
     }
     .footer-mobile-contact .contact-form-wrap {
         width: 100%;
@@ -1214,8 +1564,8 @@ nav a.active {
         height: 100px;
     }
     .footer-mobile-contact .send-btn {
-        font-size: 13px;
-        padding: 10px 20px;
+        font-size: 15px;
+        padding: 13px 28px;
     }
     .footer-mobile-contact .title {
         margin: 0 0 4px;
@@ -1294,6 +1644,12 @@ nav a.active {
     /* Services bottom */
     .services-bottom {
         padding: 30px 20px;
+    }
+
+    .book-btn-large {
+        font-size: 19px;
+        padding: 19px 40px;
+        width: 100%;
     }
 
     .testimonials-grid {
