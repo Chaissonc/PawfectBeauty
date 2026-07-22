@@ -449,12 +449,12 @@ nav a.active::after {
 
 .subText {
     font-family: Barlow;
-    font-size: 16px;
-    color: rgb(101, 101, 101);
+    font-size: 17px;
+    color: rgb(130, 130, 130);
     width: 90%;
     max-width: 800px;
     text-align: center;
-    padding-bottom: 16px;
+    padding-bottom: 32px;
     margin: -30px auto 0;
 }
 
@@ -517,12 +517,13 @@ nav a.active::after {
 
 .subSubHeader {
     font-family: 'Dancing Script';
-    font-size: 23px;
+    font-size: 35px;
     color: rgb(202, 167, 24);
     letter-spacing: 1px;
-    padding: 5px;
+    padding: 5px 10px;
     text-align: center;
-    width: 230px;
+    width: 100%;
+    box-sizing: border-box;
     margin: 5px auto;
     min-height: 60px;
     display: flex;
@@ -752,8 +753,9 @@ nav a.active::after {
 .vaccine-notice {
     font-family: Barlow;
     font-style: italic;
+    font-weight: 700;
     font-size: 16px;
-    color: rgb(202, 167, 24);
+    color: white;
     margin-bottom: 20px;
 }
 
@@ -890,7 +892,7 @@ nav a.active::after {
 }
 
 .bio-card {
-    background-color: rgb(206, 173, 63);
+    background-color: rgb(222, 188, 82);
     border-radius: 16px;
     padding: 60px 24px 30px;
     width: 100%;
@@ -1383,7 +1385,7 @@ nav a.active::after {
 
     /* Home info cards subheaders */
     .subSubHeader {
-        font-size: 27px;
+        font-size: 35px;
         font-weight: 700;
     }
 
