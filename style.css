@@ -1249,6 +1249,15 @@ nav a.active::after {
 
 @media (max-width: 768px) {
 
+    /* Gold background: sparkle image stretches too much on phone screens, use repeating tile instead */
+    body {
+        background-image: url("Assets/Photos/Background/phoneGold.png");
+        background-repeat: repeat;
+        background-position: top center;
+        background-size: auto;
+        background-attachment: scroll;
+    }
+
     /* Logo */
     .logo-header {
         padding: 14px 0 10px;
