@@ -53,3 +53,42 @@ if (testimonialsGrid) {
     startAuto();
 }
 
+
+// Instagram card: 3 clips at a time on desktop, 1 on mobile; arrows step one clip at a time
+(function () {
+    var stage = document.querySelector('.ig-stage');
+    if (!stage) return;
+    var track = stage.querySelector('.ig-track');
+    var tiles = stage.querySelectorAll('.ig-tile');
+    var vids = stage.querySelectorAll('video');
+    var prev = stage.querySelector('.ig-prev');
+    var next = stage.querySelector('.ig-next');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var desktop = window.matchMedia('(min-width: 769px)');
+    var current = 0;
+
+    function perView() { return desktop.matches ? 3 : 1; }
+
+    function update() {
+        var max = Math.max(0, tiles.length - perView());
+        if (current > max) { current = max; }
+        track.style.transform = 'translateX(' + (-tiles[current].offsetLeft) + 'px)';
+        vids.forEach(function (v, i) {
+            var visible = i >= current && i < current + perView();
+            if (visible && !reduce) {
+                v.play().catch(function () {});
+            } else {
+                v.pause();
+            }
+        });
+        prev.hidden = (current === 0);
+        next.hidden = (current >= max);
+    }
+
+    prev.addEventListener('click', function () { current -= 1; update(); });
+    next.addEventListener('click', function () { current += 1; update(); });
+    desktop.addEventListener('change', update);
+    window.addEventListener('resize', update);
+    window.addEventListener('load', update);
+    update();
+})();
