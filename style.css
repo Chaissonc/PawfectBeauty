@@ -322,7 +322,7 @@ nav a:hover::after {
 
 /* Current page: soft white tab, full height and width of the menu item, so the gold text stands out */
 nav a.active {
-    background-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 .mob-only { display: none; }
@@ -1716,10 +1716,17 @@ nav a.active {
 
 
 
+    /* Testimonials and Instagram section: 13px side gutter to match the cards above */
+    .testimonials-section {
+        padding-top: 0;
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
     /* Text containers */
-    /* Same 20px side gutter as the Instagram and testimonial section below */
+    /* Same 13px side gutter as the Instagram and testimonial section below */
     .home-content {
-        width: calc(100% - 40px);
+        width: calc(100% - 26px);
     }
 
     .textContainer,
@@ -1734,7 +1741,7 @@ nav a.active {
         width: 100%;
     }
     .textContainer.narrow {
-        width: calc(100% - 40px);
+        width: calc(100% - 26px);
         margin-top: 15px;
     }
     .subText {
@@ -1864,7 +1871,7 @@ nav a.active {
     .footer-mobile-contact {
         display: block;
         background-color: white;
-        width: calc(100% - 40px);
+        width: calc(100% - 26px);
         margin: 15px auto 30px;
         border-radius: 20px;
         padding: 24px 24px 28px;
@@ -1954,7 +1961,14 @@ nav a.active {
 
     /* Services bottom */
     .services-bottom {
-        padding: 20px 20px 30px;
+        padding: 20px 13px 30px;
+    }
+    /* Inside the home content the cards already set the side gutters, so the button matches them exactly */
+    .home-content .services-bottom {
+        padding: 20px 0 12px;
+    }
+    .insta-cta .subHeader {
+        padding-top: 15px;
     }
 
     .book-btn-large {
