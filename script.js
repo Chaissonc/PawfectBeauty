@@ -1,11 +1,102 @@
 
 // Carousel - only runs on pages that have it
 const track = document.querySelector('.dog-track');
-if (track) {
+const carousel = document.querySelector('.dog-carousel-container');
+if (track && carousel) {
     const images = Array.from(track.querySelectorAll('img'));
     images.forEach(img => {
         track.appendChild(img.cloneNode(true));
     });
+
+    // Auto-scrolls on its own; swiping, dragging or wheel-scrolling pauses it for 3s, then it carries on
+    const PAUSE_MS = 3000;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const mobileQuery = window.matchMedia('(max-width: 768px)');
+    let pos = 0;
+    let paused = false;
+    let resumeTimer = null;
+    let last = performance.now();
+    let dragStartX = 0;
+    let dragStartScroll = 0;
+    let dragging = false;
+
+    function half() { return carousel.scrollWidth / 2; }
+
+    // Two identical halves: keep the scroll position in the middle band so it loops both ways
+    function wrap() {
+        const h = half();
+        let sl = carousel.scrollLeft;
+        if (sl >= h * 1.5) { sl -= h; carousel.scrollLeft = sl; }
+        else if (sl < h * 0.5) { sl += h; carousel.scrollLeft = sl; }
+        return sl;
+    }
+
+    function pauseThenResume() {
+        paused = true;
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(function () {
+            pos = carousel.scrollLeft;
+            paused = false;
+        }, PAUSE_MS);
+    }
+
+    function start() {
+        carousel.scrollLeft = half();
+        pos = carousel.scrollLeft;
+        last = performance.now();
+        requestAnimationFrame(tick);
+    }
+
+    function tick(now) {
+        const dt = Math.min(now - last, 100);
+        last = now;
+        if (!paused && !reduceMotion && !dragging) {
+            const speed = mobileQuery.matches ? 35 : 45; // pixels per second
+            pos += speed * dt / 1000;
+            if (pos >= half() * 1.5) { pos -= half(); }
+            carousel.scrollLeft = pos;
+        }
+        requestAnimationFrame(tick);
+    }
+
+    carousel.addEventListener('touchstart', pauseThenResume, { passive: true });
+    carousel.addEventListener('touchend', pauseThenResume, { passive: true });
+    carousel.addEventListener('wheel', pauseThenResume, { passive: true });
+
+    // Any scroll we did not cause (momentum, keyboard, scrollbar) also pauses and re-wraps
+    carousel.addEventListener('scroll', function () {
+        if (Math.abs(carousel.scrollLeft - pos) > 3) {
+            pauseThenResume();
+            pos = wrap();
+        }
+    }, { passive: true });
+
+    // Mouse drag on desktop
+    carousel.addEventListener('pointerdown', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        dragging = true;
+        dragStartX = e.clientX;
+        dragStartScroll = carousel.scrollLeft;
+        carousel.classList.add('is-dragging');
+        carousel.setPointerCapture(e.pointerId);
+        pauseThenResume();
+    });
+    carousel.addEventListener('pointermove', function (e) {
+        if (!dragging) return;
+        carousel.scrollLeft = dragStartScroll - (e.clientX - dragStartX);
+        pauseThenResume();
+    });
+    function endDrag() {
+        if (!dragging) return;
+        dragging = false;
+        carousel.classList.remove('is-dragging');
+        pauseThenResume();
+    }
+    carousel.addEventListener('pointerup', endDrag);
+    carousel.addEventListener('pointercancel', endDrag);
+
+    start();
+    window.addEventListener('resize', function () { pos = wrap(); });
 }
 
 // Testimonials auto-scroll (mobile only) - pauses 5s after a manual swipe

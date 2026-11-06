@@ -64,9 +64,12 @@
 :root {
     --gold: rgb(202, 167, 24);
     --gold-deep: #8f7112;
-    --gold-line: rgba(202, 167, 24, 0.4);
-    --gold-line-soft: rgba(202, 167, 24, 0.16);
-    --gold-glow: rgba(202, 167, 24, 0.1);
+    --gold-line: rgba(226, 204, 140, 0.65);
+    --gold-line-soft: rgba(226, 204, 140, 0.3);
+    --gold-glow: rgba(226, 204, 140, 0.18);
+
+    /* Strength of the white glass over the page background (0 = none, 1 = solid white) */
+    --glass-wash: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4));
 
     /* Filigree corner ornament — real gold-foil scrollwork asset, oriented top-left by default */
     --filigree-img: url("Assets/Icons/Filigree.png");
@@ -149,7 +152,8 @@ body::before {
     inset: -24px;
     z-index: -1;
     background-color: white;
-    background-image: url("Assets/Photos/Background/gold-blur.jpg");
+    /* White glass: a see-through white wash sits on top of the gold image */
+    background-image: var(--glass-wash), url("Assets/Photos/Background/gold-blur.jpg");
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
@@ -348,18 +352,26 @@ nav a.active {
     height: 120%;
     margin: 0 auto;
     position: relative;
-    overflow: hidden;
+    /* Scrolls by itself (script.js) and can be dragged or swiped; scrollbar hidden */
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
     border-radius: 15px;
+}
+
+.dog-carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.dog-carousel-container.is-dragging {
+    cursor: grabbing;
 }
 
 .dog-track {
     display: flex;
-    animation: scroll-left 19s linear infinite;
-}
-
-@keyframes scroll-left {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    width: max-content;
 }
 
 .dog-track img {
@@ -371,6 +383,8 @@ nav a.active {
     box-sizing: border-box;
     border-radius: 19px;
     margin-top: 6px;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 
@@ -1447,13 +1461,13 @@ nav a.active {
 }
 
 .footer-bar {
-    background-color: rgb(206, 173, 63);
+    background-color: rgb(214, 184, 90);
     display: flex;
     flex-direction: column;
     padding: 40px 60px;
     gap: 24px;
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 -1px 0 var(--gold-deep);
+    box-shadow: 0 -1px 0 var(--gold-line);
 }
 
 .footer-bar-top {
@@ -1583,10 +1597,10 @@ nav a.active {
 
     /* Gold background: sparkle image stretches too much on phone screens, use repeating tile instead */
     body::before {
-        background-image: url("Assets/Photos/Background/phoneGold.png");
-        background-repeat: repeat;
+        background-image: var(--glass-wash), url("Assets/Photos/Background/phoneGold.png");
+        background-repeat: no-repeat, repeat;
         background-position: top center;
-        background-size: auto;
+        background-size: 100% 100%, auto;
     }
 
     /* Logo */
@@ -1685,17 +1699,13 @@ nav a.active {
         border-radius: 15px;
     }
     .dog-track img {
-        width: calc((97vw - 12px) / 3.2);
+        width: calc((97vw - 12px) / 3.5);
         height: 300px;
         margin-top: 0;
         padding: 0 3px;
         border-radius: 14px;
     }
 
-.dog-track {
-    display: flex;
-    animation: scroll-left 13s linear infinite;
-}
 
 
 
@@ -1741,7 +1751,7 @@ nav a.active {
         flex-direction: column;
         width: 100%;
         margin: 16px auto 0;
-        padding-bottom: 40px;
+        padding-bottom: 0;
         align-items: center;
         gap: 20px;
     }
@@ -1911,7 +1921,7 @@ nav a.active {
 
     /* Services bottom */
     .services-bottom {
-        padding: 30px 20px;
+        padding: 20px 20px 30px;
     }
 
     .book-btn-large {
